@@ -1,0 +1,16 @@
+.root {
+  @extend %center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  padding: 100px 5%;
+  background-color: $secondary-9;
+  color: $secondary-0;
+  text-align: center;
+  overflow: hidden;
+  overflow-y: auto;
+
+  * {
+    z-index: 2;
+  }
+}

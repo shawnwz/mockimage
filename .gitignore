@@ -2,6 +2,6 @@
 /build
 .env
 .env.local
-.log
+*.log
 .idea/*
 .vscode/*

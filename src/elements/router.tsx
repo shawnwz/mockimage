@@ -12,6 +12,7 @@ import useAutoScreenType from 'hooks/use-auto-screen-type';
 
 import Feedback from 'elements/structures/feedback';
 import Home from 'elements/structures/home';
+import Header from "./structures/header";
 
 //------------------------------------------------------------------------------
 
@@ -22,6 +23,7 @@ const Router: React.FC = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path='/'>
+          <Header></Header>
           <Home />
         </Route>
         <Route>
