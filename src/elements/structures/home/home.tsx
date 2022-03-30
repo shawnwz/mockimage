@@ -1,5 +1,4 @@
 import React from "react";
-//import {Button} from "@mui/material";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
@@ -7,11 +6,16 @@ import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent }from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
-import UrlValue from "../url-value/url-value";
 import Image from "../image/image";
-import {setImageType, setImageWidth, setImageHeight} from 'store/actions';
-//import {useDispatch} from "react-redux";
-//import {Global} from 'types';
+import {
+    setImageType,
+    setImageWidth,
+    setImageHeight,
+    setBgColor,
+    setTextColor,
+    setText,
+    setTextSize
+} from 'store/actions';
 import {useStore, useSelector} from "react-redux";
 import {Store} from "../../../types";
 
@@ -42,6 +46,22 @@ const Home: React.FC = () => {
     const changeImageHeight = (event: any) => {
         console.log("target value is ", event.target.value)
         store.dispatch(setImageHeight(event.target.value))
+    }
+    const changeBgColor = (event: any) => {
+        console.log("target value is ", event.target.value)
+        store.dispatch(setBgColor(event.target.value))
+    }
+    const changeTextColor = (event: any) => {
+        console.log("target value is ", event.target.value)
+        store.dispatch(setTextColor(event.target.value))
+    }
+    const changeText = (event: any) => {
+        console.log("target value is ", event.target.value)
+        store.dispatch(setText(event.target.value))
+    }
+    const changeTextSize = (event: any) => {
+        console.log("target value is ", event.target.value)
+        store.dispatch(setTextSize(event.target.value))
     }
 
 
@@ -107,20 +127,23 @@ const Home: React.FC = () => {
             <TextField
                 id="outlined-required"
                 label="Background Color"
-                defaultValue="Grey"
+                defaultValue="grey"
+                onChange={changeBgColor}
             />
             <TextField
                 id="outlined-required"
                 label="Text Color"
-                defaultValue="Black"
+                defaultValue="black"
+                onChange={changeTextColor}
             />
 
             <TextField
                 id="filled-helperText"
                 label="Text"
-                defaultValue="Hello World"
+                defaultValue="MockImage"
                 helperText="text display on the image"
                 variant="filled"
+                onChange={changeText}
             />
 
             <TextField
@@ -131,11 +154,9 @@ const Home: React.FC = () => {
                     shrink: true,
                 }}
                 variant="filled"
-                defaultValue={10}
+                defaultValue={15}
+                onChange={changeTextSize}
             />
-        </div>
-        <div>
-            <UrlValue></UrlValue>
         </div>
         <div>
             <Image></Image>

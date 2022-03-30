@@ -22,6 +22,14 @@ export default function reducer(
       return {...state, imageWidth: payload.imageWidth}
     case actions.setImageHeight:
       return {...state, imageHeight: payload.imageHeight}
+    case actions.setBgColor:
+      return {...state, bgColor: payload.bgColor}
+    case actions.setTextColor:
+      return {...state, textColor: payload.textColor}
+    case actions.setText:
+      return {...state, text: payload.text}
+    case actions.setTextSize:
+      return {...state, textSize: payload.textSize}
     default:
       return state;
   }

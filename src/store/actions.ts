@@ -6,7 +6,11 @@ export const actions: Store.Actions = {
   setScreenType: 'SET_SCREEN_TYPE',
   setImageType: 'SET_IMAGE_TYPE',
   setImageWidth: 'SET_IMAGE_WIDTH',
-  setImageHeight: 'SET_IMAGE_HEIGHT'
+  setImageHeight: 'SET_IMAGE_HEIGHT',
+  setBgColor: 'SET_BG_COLOR',
+  setTextColor: 'SET_TEXT_COLOR',
+  setText: 'SET_TEXT',
+  setTextSize: 'SET_TEXT_SIZE'
 };
 
 //------------------------------------------------------------------------------
@@ -63,5 +67,53 @@ export function setImageHeight(imageHeight: number): ImageHeightAction {
   return {
     type: actions.setImageHeight,
     payload: {imageHeight}
+  }
+}
+
+//------------set bg color--------------
+interface BgColorPayload {
+  readonly bgColor: string
+}
+interface BgColorAction extends Store.Action<BgColorPayload> {};
+export function setBgColor(bgColor: string): BgColorAction {
+  return {
+    type: actions.setBgColor,
+    payload: {bgColor}
+  }
+}
+
+//------------set text color--------------
+interface TextColorPayload {
+  readonly textColor: string
+}
+interface TextColorAction extends Store.Action<TextColorPayload> {};
+export function setTextColor(textColor: string): TextColorAction {
+  return {
+    type: actions.setTextColor,
+    payload: {textColor}
+  }
+}
+
+//------------set text--------------
+interface TextPayload {
+  readonly text: string
+}
+interface TextAction extends Store.Action<TextPayload> {};
+export function setText(text: string): TextAction {
+  return {
+    type: actions.setText,
+    payload: {text}
+  }
+}
+
+//------------set text size--------------
+interface TextSizePayload {
+  readonly textSize: number
+}
+interface TextSizeAction extends Store.Action<TextSizePayload> {};
+export function setTextSize(textSize: number): TextSizeAction {
+  return {
+    type: actions.setTextSize,
+    payload: {textSize}
   }
 }

@@ -11,6 +11,10 @@ export namespace Store {
     readonly imageType: Global.ImageType;
     readonly imageWidth: number;
     readonly imageHeight: number;
+    readonly bgColor: string;
+    readonly textColor: string;
+    readonly text: string;
+    readonly textSize: number;
   }
 
   export interface Actions {
@@ -18,6 +22,10 @@ export namespace Store {
     readonly setImageType: 'SET_IMAGE_TYPE';
     readonly setImageWidth: 'SET_IMAGE_WIDTH';
     readonly setImageHeight: 'SET_IMAGE_HEIGHT';
+    readonly setBgColor: 'SET_BG_COLOR';
+    readonly setTextColor: 'SET_TEXT_COLOR';
+    readonly setText: 'SET_TEXT';
+    readonly setTextSize: 'SET_TEXT_SIZE';
   }
 
   export type ActionType = Actions[keyof Actions];
