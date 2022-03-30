@@ -7,12 +7,12 @@ import determineScreenType from 'utility/determine-screen-type';
 const defaults: Store.State = {
   screenType: determineScreenType(window.innerWidth),
   imageType: 'jpg',
-  imageWidth: 100,
-  imageHeight: 100,
+  imageWidth: 200,
+  imageHeight: 200,
   bgColor: 'grey',
   textColor: 'black',
   text: 'MockImage',
-  textSize: 15
+  textSize: 20
 };
 
 //------------------------------------------------------------------------------

@@ -90,7 +90,7 @@ const Home: React.FC = () => {
                 InputLabelProps={{
                     shrink: true,
                 }}
-                defaultValue={100}
+                defaultValue={200}
                 onChange={changeImageWidth}
             />
             <TextField
@@ -100,7 +100,7 @@ const Home: React.FC = () => {
                 InputLabelProps={{
                     shrink: true,
                 }}
-                defaultValue={100}
+                defaultValue={200}
                 onChange={changeImageHeight}
             />
 
@@ -141,7 +141,7 @@ const Home: React.FC = () => {
                 id="filled-helperText"
                 label="Text"
                 defaultValue="MockImage"
-                helperText="text display on the image"
+                helperText="Optional: text display on the image"
                 variant="filled"
                 onChange={changeText}
             />
@@ -154,7 +154,7 @@ const Home: React.FC = () => {
                     shrink: true,
                 }}
                 variant="filled"
-                defaultValue={15}
+                defaultValue={20}
                 onChange={changeTextSize}
             />
         </div>
