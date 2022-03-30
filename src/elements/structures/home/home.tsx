@@ -4,16 +4,47 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select, { SelectChangeEvent }from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
-import Image from "../image/image"
-const Home: React.FC = () => {
-    const [format, setFormat] = React.useState('');
+import UrlValue from "../url-value/url-value";
+import Image from "../image/image";
+import {setImageType, setImageWidth, setImageHeight} from 'store/actions';
+//import {useDispatch} from "react-redux";
+//import {Global} from 'types';
+import {useStore, useSelector} from "react-redux";
+import {Store} from "../../../types";
 
-    const handleChange = (event: SelectChangeEvent) => {
-        setFormat(event.target.value as string);
-    };
+const Home: React.FC = () => {
+
+    const store = useStore();
+    const imageType = useSelector((store: Store.State) => store.imageType);
+    const changeImageType = (event: SelectChangeEvent) => {
+        console.log("target value is ", event.target.value)
+        switch(event.target.value){
+            case 'jpg':
+                store.dispatch(setImageType( "jpg"))
+                break
+            case 'png':
+                store.dispatch(setImageType( "png"))
+                break
+            case 'gif':
+                store.dispatch(setImageType( "gif"))
+                break
+            default:
+                store.dispatch(setImageType( "gif"))
+        }
+    }
+    const changeImageWidth = (event: any) => {
+        console.log("target value is ", event.target.value)
+        store.dispatch(setImageWidth(event.target.value))
+    }
+    const changeImageHeight = (event: any) => {
+        console.log("target value is ", event.target.value)
+        store.dispatch(setImageHeight(event.target.value))
+    }
+
+
 
     return(
     <Box
@@ -39,7 +70,8 @@ const Home: React.FC = () => {
                 InputLabelProps={{
                     shrink: true,
                 }}
-                defaultValue={200}
+                defaultValue={100}
+                onChange={changeImageWidth}
             />
             <TextField
                 id="outlined-number"
@@ -48,7 +80,8 @@ const Home: React.FC = () => {
                 InputLabelProps={{
                     shrink: true,
                 }}
-                defaultValue={200}
+                defaultValue={100}
+                onChange={changeImageHeight}
             />
 
             <FormControl sx={{ m: 1, minWidth: 120 }}>
@@ -56,10 +89,10 @@ const Home: React.FC = () => {
                 <Select
                     labelId="demo-simple-select-helper-label"
                     id="demo-simple-select-helper"
-                    value={format}
+                    value={imageType}
                     label="Format"
-                    onChange={handleChange}
-                    defaultValue={'jpg'}
+                    onChange={changeImageType}
+                    defaultValue={imageType}
                 >
                     {/*<MenuItem value="">*/}
                     {/*    <em>None</em>*/}
@@ -100,6 +133,9 @@ const Home: React.FC = () => {
                 variant="filled"
                 defaultValue={10}
             />
+        </div>
+        <div>
+            <UrlValue></UrlValue>
         </div>
         <div>
             <Image></Image>

@@ -15,6 +15,13 @@ export default function reducer(
         ...state,
         screenType: payload.screenType,
       };
+    case actions.setImageType:
+      console.log('set image type reducer...')
+      return {...state, imageType: payload.imageType}
+    case actions.setImageWidth:
+      return {...state, imageWidth: payload.imageWidth}
+    case actions.setImageHeight:
+      return {...state, imageHeight: payload.imageHeight}
     default:
       return state;
   }
