@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 import {Store} from "../../../types";
 import {Button, Box} from "@mui/material";
 import {CopyToClipboard} from "react-copy-to-clipboard";
+import SupportMe from '../../../components/support-me/support-me'
 
 const Image: React.FC = () => {
     return(
@@ -20,6 +21,9 @@ const Image: React.FC = () => {
                 >
                     <Button variant="outlined">Copy to clipboard</Button>
                 </CopyToClipboard>
+            </div>
+            <div>
+                <SupportMe></SupportMe>
             </div>
             <div
                 style={{

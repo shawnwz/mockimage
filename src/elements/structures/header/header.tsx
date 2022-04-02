@@ -8,10 +8,8 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
-import { styled } from '@mui/material/styles';
-import Button, { ButtonProps } from '@mui/material/Button';
-import { purple } from '@mui/material/colors';
-
+import Button from '@mui/material/Button';
+import SupportMe from '../../../components/support-me/support-me'
 const pages = ['Feedback'];
 
 const Header: React.FC = () => {
@@ -97,20 +95,12 @@ const Header: React.FC = () => {
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <ColorButton variant="contained">Support!</ColorButton>
+                        <SupportMe>Support Me!</SupportMe>
                     </Box>
                 </Toolbar>
             </Container>
         </AppBar>
     );
 }
-
-const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
-    color: theme.palette.getContrastText(purple[500]),
-    backgroundColor: purple[500],
-    '&:hover': {
-        backgroundColor: purple[700],
-    },
-}));
 
 export default Header;
