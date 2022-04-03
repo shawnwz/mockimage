@@ -1,11 +1,60 @@
 import React from "react";
 import {useSelector} from "react-redux";
 import {Store} from "../../../types";
-import {Button, Box} from "@mui/material";
+import {Button, Box, Snackbar, SnackbarOrigin} from "@mui/material";
 import {CopyToClipboard} from "react-copy-to-clipboard";
 import SupportMe from '../../../components/support-me/support-me'
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from '@mui/icons-material/Close';
+import Alert from '@mui/material/Alert';
 
+export interface State extends SnackbarOrigin {
+    open: boolean;
+}
 const Image: React.FC = () => {
+    const [state, setState] = React.useState<State>({
+        open: false,
+        vertical: 'top',
+        horizontal: 'center',
+    });
+    const { vertical, horizontal, open } = state;
+
+    const handleClick = (newState: SnackbarOrigin) => {
+        setState({ open: true, ...newState });
+    };
+
+
+    const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setState({ ...state, open: false });
+    };
+
+    const action = (
+        <React.Fragment>
+            <Button color="secondary" size="small" onClick={handleClose}>
+                UNDO
+            </Button>
+            <IconButton
+                size="small"
+                aria-label="close"
+                color="inherit"
+                onClick={handleClose}
+            >
+                <CloseIcon fontSize="small" />
+            </IconButton>
+        </React.Fragment>
+    );
+
+    const copied = () => {
+        handleClick({
+            vertical: 'top',
+            horizontal: 'center',
+        })
+    }
+
     return(
         <Box
             display="flex"
@@ -17,7 +66,7 @@ const Image: React.FC = () => {
                 <p>{GetImageUrl()}</p>
                 <CopyToClipboard
                     text={GetImageUrl()}
-                    onCopy={() => alert("Copied")}
+                    onCopy={copied}
                 >
                     <Button variant="outlined">Copy to clipboard</Button>
                 </CopyToClipboard>
@@ -32,6 +81,18 @@ const Image: React.FC = () => {
                 <img src={GetImageUrl()} alt={imgUrl}></img>
 
             </div>
+            <Snackbar
+                open={open}
+                autoHideDuration={1000}
+                onClose={handleClose}
+                anchorOrigin={{ vertical, horizontal }}
+                key={vertical + horizontal}
+                action={action}
+            >
+                <Alert onClose={handleClose} variant="filled" severity="success" sx={{ width: '100%' }}>
+                    Copied to Clipboard!
+                </Alert>
+            </Snackbar>
         </Box>
 
     );
@@ -61,6 +122,8 @@ function GetImageUrl() {
         .concat(textSize.toString())
     return rawurl.replace(/([^:]\/)\/+/g, "$1");
 }
+
+
 
 const imgUrl = 'http://localhost:8080/api/img/350x500/jpg/grey/white?text=hello%20world&size=12'
 
