@@ -106,7 +106,8 @@ function GetImageUrl() {
     const textColor = useSelector((store: Store.State) => store.textColor);
     const text = useSelector((store: Store.State) => store.text);
     const textSize = useSelector((store: Store.State) => store.textSize);
-    let rawurl = 'http://localhost:8080/api/img/'
+    let apiUrl = process.env["API_URL"] || 'http://localhost/'
+    let rawurl = apiUrl
         .concat(imageWidth.toString())
         .concat('x')
         .concat(imageHeight.toString())

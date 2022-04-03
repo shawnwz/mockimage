@@ -276,6 +276,7 @@ module.exports = function(_, webpackEnv) {
       isProduction && new BuildFolderWiper(paths.build),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(webpackEnv.mode),
+        'process.env.API_URL': JSON.stringify(process.env.REACT_APP_API_BASE_URL),
       }),
       new webpack.EnvironmentPlugin([
         // Pass all public env variables here
