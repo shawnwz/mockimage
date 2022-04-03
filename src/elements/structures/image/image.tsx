@@ -45,7 +45,7 @@ function GetImageUrl() {
     const textColor = useSelector((store: Store.State) => store.textColor);
     const text = useSelector((store: Store.State) => store.text);
     const textSize = useSelector((store: Store.State) => store.textSize);
-    return 'http://localhost:8080/api/img/'
+    let rawurl = 'http://localhost:8080/api/img/'
         .concat(imageWidth.toString())
         .concat('x')
         .concat(imageHeight.toString())
@@ -56,9 +56,10 @@ function GetImageUrl() {
         .concat('/')
         .concat(textColor)
         .concat('?text=')
-        .concat(text)
+        .concat(encodeURIComponent(text))
         .concat('&size=')
         .concat(textSize.toString())
+    return rawurl.replace(/([^:]\/)\/+/g, "$1");
 }
 
 const imgUrl = 'http://localhost:8080/api/img/350x500/jpg/grey/white?text=hello%20world&size=12'
