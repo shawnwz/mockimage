@@ -24,7 +24,7 @@ const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
 }));
 
 function GoSupport() {
-    const url = 'https://paypal.me/sean6881';
+    const url = process.env["PAYPALME_URL"] ||   'https://paypal.me/sean6881';
     window.open(url, '_blank');
 }
 

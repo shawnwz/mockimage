@@ -277,6 +277,7 @@ module.exports = function(_, webpackEnv) {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(webpackEnv.mode),
         'process.env.API_URL': JSON.stringify(process.env.REACT_APP_API_BASE_URL),
+        'process.env.PAYPALME_URL': JSON.stringify(process.env.REACT_APP_PAYPALME_URL)
       }),
       new webpack.EnvironmentPlugin([
         // Pass all public env variables here
