@@ -78,7 +78,7 @@ const Image: React.FC = () => {
                 style={{
                     marginTop:"5em"
                 }}>
-                <img src={GetImageUrl()} alt={imgUrl}></img>
+                <img src={GetImageUrl()} alt={GetImageUrl()}></img>
 
             </div>
             <Snackbar
@@ -126,7 +126,7 @@ function GetImageUrl() {
 
 
 
-const imgUrl = 'http://localhost:8080/api/img/350x500/jpg/grey/white?text=hello%20world&size=12'
+//const imgUrl = GetImageUrl()
 
 
 export default Image;
