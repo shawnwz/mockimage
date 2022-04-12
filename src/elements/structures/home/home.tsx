@@ -141,7 +141,7 @@ const Home: React.FC = () => {
                 id="filled-helperText"
                 label="Text"
                 defaultValue="MockImage"
-                helperText="Optional: text display on the image"
+                helperText="Optional: text display on the image, English only"
                 variant="filled"
                 onChange={changeText}
             />

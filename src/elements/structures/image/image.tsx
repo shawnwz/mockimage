@@ -63,7 +63,10 @@ const Image: React.FC = () => {
             justifyContent="center"
         >
             <div>
-                <p>{GetImageUrl()}</p>
+                <p style={{
+                    fontSize: 20,
+                    fontWeight: "bold"
+                }}>{GetImageUrl()}</p>
                 <CopyToClipboard
                     text={GetImageUrl()}
                     onCopy={copied}
