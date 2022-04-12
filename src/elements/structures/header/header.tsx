@@ -10,7 +10,7 @@ import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import SupportMe from '../../../components/support-me/support-me'
-const pages = ['Feedback'];
+const pages = [''];
 
 const Header: React.FC = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
