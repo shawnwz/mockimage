@@ -7,6 +7,7 @@ import Select, { SelectChangeEvent }from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
 import Image from "../image/image";
+import ColorReference from "../color-reference/color-reference";
 import {
     setImageType,
     setImageWidth,
@@ -157,6 +158,9 @@ const Home: React.FC = () => {
                 defaultValue={20}
                 onChange={changeTextSize}
             />
+        </div>
+        <div>
+            <ColorReference/>
         </div>
         <div>
             <Image></Image>
